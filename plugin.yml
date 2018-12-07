@@ -1,0 +1,7 @@
+name: ExtraGL
+main: FaigerSYS\ExtraGL\ExtraGL
+version: "1.4"
+api: ["3.0.0"]
+load: POSTWORLD
+author: FaigerSYS
+description: "Adds global and local chat"

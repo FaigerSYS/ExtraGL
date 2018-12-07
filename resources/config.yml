@@ -1,0 +1,16 @@
+# ExtraGL by FaigerSYS (https://github.com/FaigerSYS/ExtraGL)
+
+# Supplement to the beginning of message format (local chat)
+local: "[L] "
+
+# Supplement to the beginning of message format (global chat)
+global: "[G] "
+
+# Symbol for local chat
+begin-local: ""
+
+# Symbol for global chat
+begin-global: "!"
+
+# Radius of local chat
+radius: 50
