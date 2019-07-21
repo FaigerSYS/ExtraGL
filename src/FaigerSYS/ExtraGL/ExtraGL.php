@@ -31,8 +31,6 @@ class ExtraGL extends PluginBase implements Listener {
 	private $ccs;
 	
 	public function onEnable() {
-		$this->getLogger()->info(CLR::GOLD . 'ExtraGL enabling...');
-		
 		$this->saveResource('config.yml');
 		$data = (new Config($this->getDataFolder() . 'config.yml'))->getAll();
 		
@@ -47,8 +45,6 @@ class ExtraGL extends PluginBase implements Listener {
 		$this->ccs = new ConsoleCommandSender();
 		
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		
-		$this->getLogger()->info(CLR::GOLD . 'ExtraGL enabled!');
 	}
 	
 	/**
@@ -59,21 +55,18 @@ class ExtraGL extends PluginBase implements Listener {
 		if (substr($msg, 0, $this->beginG_len) === $this->beginG) {
 			$e->setMessage(substr($msg, $this->beginG_len));
 			$this->cache = $this->G;
-			
 		} elseif (substr($msg, 0, $this->beginL_len) === $this->beginL) {
 			$e->setMessage(substr($msg, $this->beginL_len));
+			$this->cache = $this->L;
 			
 			$sendTo = [$this->ccs];
 			$sender = $e->getPlayer();
-			
 			foreach ($sender->getLevel()->getPlayers() as $player) {
 				if ($sender->distance($player) <= $this->radius) {
 					$sendTo[] = $player;
 				}
 			}
 			$e->setRecipients($sendTo);
-			
-			$this->cache = $this->L;
 		} else {
 			$this->cache = '';
 		}
